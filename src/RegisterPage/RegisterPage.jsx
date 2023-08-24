@@ -19,9 +19,9 @@ function RegisterPage() {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
-  const registerbtn = () =>{
-navigate('/LoginPage')
-  }
+  const registerbtn = () => {
+    navigate("/LoginPage");
+  };
 
   return (
     <div className="MainContainer">
@@ -50,9 +50,19 @@ navigate('/LoginPage')
             onChange={handlePassword}
           />
         </div>
-        <button onClick={registerbtn} style={{display:"flex",marginTop:"15px"}}>Register</button>
+        <button
+          onClick={registerbtn}
+          style={{ display: "flex", marginTop: "15px" }}
+        >
+          Register
+        </button>
+        <div>
+          Already have an Account?
+          <span className="LoginText" onClick={registerbtn}>
+            Login now
+          </span>
+        </div>
       </div>
-      
     </div>
   );
 }

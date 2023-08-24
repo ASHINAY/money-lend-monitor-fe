@@ -30,3 +30,8 @@
     font-size: 18px;
   }
   
+  .SignInText{
+    color:blue;
+    text-decoration:underline ;
+    cursor:pointer;
+  }
