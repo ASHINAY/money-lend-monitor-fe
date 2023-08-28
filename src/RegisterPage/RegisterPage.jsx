@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./RegisterPage.css";
 
 function RegisterPage() {
@@ -20,9 +21,24 @@ function RegisterPage() {
     setPassword(event.target.value);
   };
   const registerbtn = () => {
-    navigate("/LoginPage");
+    if (name !== " " || email !== " " || password !== " ") {
+      alert("Please fill fields");
+    } else {
+      axios
+        .post("http://localhost:3000/register", {
+          name: name,
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          console.log("Registration successful:", response.data.user);
+          navigate("/LoginPage");
+        })
+        .catch((error) => {
+          console.error("Registration failed:", error);
+        });
+    }
   };
-
   return (
     <div className="MainContainer">
       <div className="FormContainer">

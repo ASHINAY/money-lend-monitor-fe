@@ -28,9 +28,10 @@
   
   .InputLabel {
     font-size: 18px;
+    height: 5px;
   }
   
-  .SignInText{
+  .LoginText{
     color:blue;
     text-decoration:underline ;
     cursor:pointer;
