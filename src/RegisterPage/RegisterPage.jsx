@@ -21,7 +21,10 @@ function RegisterPage() {
     setPassword(event.target.value);
   };
   const registerbtn = () => {
-    if (name !== " " || email !== " " || password !== " ") {
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    if (name === " " || email === " " || password === " ") {
       alert("Please fill fields");
     } else {
       axios
@@ -31,11 +34,13 @@ function RegisterPage() {
           password: password,
         })
         .then((response) => {
-          console.log("Registration successful:", response.data.user);
-          navigate("/LoginPage");
+          let result = response.data;
+          console.log(result);
+          alert("Data stored successfully!");
+          // navigate("/LoginPage");
         })
         .catch((error) => {
-          console.error("Registration failed:", error);
+          console.error(error);
         });
     }
   };
