@@ -34,16 +34,19 @@ function RegisterPage() {
           password: password,
         })
         .then((response) => {
-          let result = response.data;
-          console.log(result);
-          alert("Data stored successfully!");
-          // navigate("/LoginPage");
+          let responseData = response.data.message;
+          console.log(responseData);
+          alert(responseData);
+           navigate("/HomePage");
         })
         .catch((error) => {
           console.error(error);
         });
     }
   };
+  const NavigateToLoginPage = () =>{
+    navigate("/LoginPage");
+  }
   return (
     <div className="MainContainer">
       <div className="FormContainer">
@@ -79,7 +82,7 @@ function RegisterPage() {
         </button>
         <div>
           Already have an Account?
-          <span className="LoginText" onClick={registerbtn}>
+          <span className="LoginText" onClick={NavigateToLoginPage}>
             Login now
           </span>
         </div>

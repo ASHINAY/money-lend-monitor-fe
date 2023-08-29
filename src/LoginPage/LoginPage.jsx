@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import axios from "axios";
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -15,8 +15,30 @@ function LoginPage() {
     setPassword(event.target.value);
   };
   const loginbtn = () => {
-    navigate("/HomePage");
-  };
+      console.log(email);
+      console.log(password);
+      if ( email === " " || password === " ") {
+        alert("Please fill fields");
+      } else {
+        axios
+          .post("http://localhost:3000/login", {
+            
+            email: email,
+            password: password,
+          })
+          .then((response) => {
+            let responseData = response.data.message;
+            console.log(responseData);
+            alert(responseData);
+             navigate("/HomePage");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+    };
+  //   navigate("/HomePage");
+  // };
   return (
     <div className="MainContainer">
       <div className="FormContainer">
