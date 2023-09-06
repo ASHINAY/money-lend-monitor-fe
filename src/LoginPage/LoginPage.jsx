@@ -34,6 +34,7 @@ function LoginPage() {
           console.log(responseData.token);
           if (responseData.success) {
             localStorage.setItem("token", responseData.token);
+           
             navigate("/HomePage");
           } else {
             alert(responseData.message);

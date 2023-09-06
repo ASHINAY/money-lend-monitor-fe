@@ -1,0 +1,16 @@
+.homeMainContainer {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.Appbar {
+  background-color: #00adb5;
+  height: 50px;
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+   /* padding: 10px 20px 0px 20px;  */
+}
