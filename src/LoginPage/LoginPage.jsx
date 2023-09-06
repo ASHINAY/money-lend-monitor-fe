@@ -31,7 +31,9 @@ function LoginPage() {
         .then((response) => {
           let responseData = response.data;
           console.log(responseData);
+          console.log(responseData.token);
           if (responseData.success) {
+            localStorage.setItem("token", responseData.token);
             navigate("/HomePage");
           } else {
             alert(responseData.message);
